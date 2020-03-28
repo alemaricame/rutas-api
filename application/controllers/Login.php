@@ -17,10 +17,6 @@
 
 
     	public function login_post(){
-            if($datos = !empty($this->input->post('data')) ? $this->input->post('data') : false ){
-                $result = $this->MasterModel->getUsers($datos);
-                echo json_encode($result);
-            }
             $data = $this->post();
             $result = $this->Loginmodel->login($data);
 
