@@ -81,6 +81,10 @@
 
             $this->db->insert('ventasrepartidor_detalle', $prod);
         }
+
+        return $idVentaRepartidor = $this->db->insert_id();
+
+
     }
 
     public function getventas($data){
@@ -102,7 +106,7 @@
             "detalle" => $datos,
             "datos" => $datost
         );
-        
+
         return $data;
     }
 
