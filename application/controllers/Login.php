@@ -5,9 +5,10 @@
 
     class Login extends REST_Controller{
         public function __construct(){
-            header("Access-Control-Allow-Origin: *");
+
             header("Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS");
-            header("Access-Control-Allow-Headers: Content-Type, Content-Length, Accept-Encoding");
+            header("Access-Control-Allow-Headers: contentType:x-www-form-urlencoded; charset=utf-8, Content-Length, Accept-Encoding");
+            header("Access-Control-Allow-Origin: * ");
             
             parent::__construct();
 
@@ -16,8 +17,13 @@
 
 
     	public function login_post(){
+            if($datos = !empty($this->input->post('data')) ? $this->input->post('data') : false ){
+                $result = $this->MasterModel->getUsers($datos);
+                echo json_encode($result);
+            }
             $data = $this->post();
             $result = $this->Loginmodel->login($data);
+
             $this->response($result);
         }
         public function recuperapass_get($usuarioRepartidor="0"){
@@ -26,6 +32,19 @@
            // $result = $this->Loginmodel->recuperapass($usuarioRepartidor);
             //$this->response($result);
         }
+
+        public function agregarventa_post(){
+            $data = $this->post();
+            var_dump($data);
+            die();
+            //RECOGE DATOS
+            
+            //$query = $this->db->insert('contador', $data);
+                # se incerto correctamente
+                $this->response(array('error' => TRUE,'status' => 'ERROR'));
+            
+          }
+        
         
     }
 ?>

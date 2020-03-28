@@ -8,9 +8,9 @@
     public function login($data){
 
         $this->db->select('*');
-        $this->db->from('repartidor');
-        $this->db->where('usuarioRepartidor',$data['usuarioRepartidor']);
-        $this->db->where('passRepartidor',$data['passRepartidor']);
+        $this->db->from('users');
+        $this->db->where('usuario',$data['usuarioRepartidor']);
+        $this->db->where('password',$data['passRepartidor']);
         $consulta = $this->db->get();
         $datos = $consulta->row();
 

@@ -14,6 +14,10 @@
             $this->load->model('Consultasmodel');
         }
 
+        public function user_get($idRepartidor="0"){
+            $result = $this->Consultasmodel->user($idRepartidor);
+            $this->response($result);
+        }
 
     	public function productos_get($idRepartidor="0"){
             $result = $this->Consultasmodel->productos($idRepartidor);
@@ -23,8 +27,8 @@
             $result = $this->Consultasmodel->citas($idRepartidor);
             $this->response($result);
         }
-        public function clientes_get($idRepartidor="0"){
-            $result = $this->Consultasmodel->clientes($idRepartidor);
+        public function clientes_get($usuario="0"){
+            $result = $this->Consultasmodel->clientes($usuario);
             $this->response($result);
         }
     }

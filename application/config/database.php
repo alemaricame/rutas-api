@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'bdhysarjgb6h6jh06ml3-mysql.services.clever-cloud.com',
-	'username' => 'un64uugszhtlzz3n',
-	'password' => '5WbUfn9kw4eMaNA4M2hX',
-	'database' => 'bdhysarjgb6h6jh06ml3',
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => '',
+	'database' => 'medicel_user',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
