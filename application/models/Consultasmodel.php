@@ -5,9 +5,10 @@
         }
     
 
-    public function productos($idRepartidor){
+    public function productos($data){
         $this->db->select('*');
         $this->db->from('vendedoresreinventario');
+        $this->db->where("idUser",$data['data']);
         $consulta = $this->db->get();
         $datos = $consulta->result_array();
 
@@ -17,17 +18,17 @@
     public function citas($idRepartidor){
         $this->db->select('*');
         $this->db->from('citas');
-        $this->db->where('idRepartidor',$idRepartidor);
+        $this->db->where('idRepartidor',$data['data']);
         $consulta = $this->db->get();
         $datos = $consulta->result_array();
 
         return $datos;
     }
 
-    public function clientes($usuario){
+    public function clientes($data){
         $this->db->select('*');
         $this->db->from('client');
-        $this->db->where('nombreUsuario','Pedro');
+        $this->db->where('idUser',$data['data']);
         $consulta = $this->db->get();
         $datos = $consulta->result_array();
 

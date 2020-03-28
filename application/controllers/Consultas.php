@@ -19,16 +19,18 @@
             $this->response($result);
         }
 
-    	public function productos_get($idRepartidor="0"){
-            $result = $this->Consultasmodel->productos($idRepartidor);
+    	public function productos_post(){
+            $data->post();
+            $result = $this->Consultasmodel->productos($data);
             $this->response($result);
         }
         public function citas_get($idRepartidor="0"){
             $result = $this->Consultasmodel->citas($idRepartidor);
             $this->response($result);
         }
-        public function clientes_get($usuario="0"){
-            $result = $this->Consultasmodel->clientes($usuario);
+        public function clientes_post(){
+            $data->post();
+            $result = $this->Consultasmodel->clientes($data);
             $this->response($result);
         }
     }
