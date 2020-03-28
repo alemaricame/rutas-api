@@ -8,7 +8,17 @@
     public function productos($data){
         $this->db->select('*');
         $this->db->from('vendedoresreinventario');
-        $this->db->where("idUser",$data['data']);
+        $this->db->where("idUser",$data);
+        $consulta = $this->db->get();
+        $datos = $consulta->result_array();
+
+        return $datos;
+    }
+
+    public function clientes($data){
+        $this->db->select('*');
+        $this->db->from('client');
+        $this->db->where('idUser',$data['data']);
         $consulta = $this->db->get();
         $datos = $consulta->result_array();
 
@@ -25,15 +35,7 @@
         return $datos;
     }
 
-    public function clientes($data){
-        $this->db->select('*');
-        $this->db->from('client');
-        $this->db->where('idUser',$data['data']);
-        $consulta = $this->db->get();
-        $datos = $consulta->result_array();
 
-        return $datos;
-    }
 
     public function user($idRepartidor){
         $this->db->select('*');
