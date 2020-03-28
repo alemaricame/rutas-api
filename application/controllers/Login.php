@@ -34,10 +34,9 @@
         }
 
         public function agregarventa_post(){
-
-                $this->response(array('error' => TRUE,'status' => 'ERROR'));
-            
-          }
+            $data = $this->post();
+            $this->response($data);
+        }
         
         
     }
