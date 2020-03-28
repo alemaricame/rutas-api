@@ -35,5 +35,13 @@
             $this->response($result);
         }
 
+        public function verventas_post(){
+            $data = $this->post();
+            $result = $this->Consultasmodel->getventas($data);
+            $this->response($result);
+        }
+
+
+
     }
 ?>

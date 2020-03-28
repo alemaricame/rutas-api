@@ -29,10 +29,7 @@
             //$this->response($result);
         }
 
-        public function agregarventa_post(){
-            $data = $this->post();
-            $this->response($data);
-        }
+
         
         
     }
