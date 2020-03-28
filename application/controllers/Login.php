@@ -34,13 +34,7 @@
         }
 
         public function agregarventa_post(){
-            $data = $this->post();
-            var_dump($data);
-            die();
-            //RECOGE DATOS
-            
-            //$query = $this->db->insert('contador', $data);
-                # se incerto correctamente
+
                 $this->response(array('error' => TRUE,'status' => 'ERROR'));
             
           }
