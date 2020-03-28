@@ -5,32 +5,33 @@
 
     class Consultas extends REST_Controller{
         public function __construct(){
-            header("Access-Control-Allow-Origin: *");
             header("Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS");
-            header("Access-Control-Allow-Headers: Content-Type, Content-Length, Accept-Encoding");
+            header("Access-Control-Allow-Headers: contentType:x-www-form-urlencoded; charset=utf-8, Content-Length, Accept-Encoding");
+            header("Access-Control-Allow-Origin: * ");
             
             parent::__construct();
 
             $this->load->model('Consultasmodel');
         }
 
-        public function user_get($idRepartidor="0"){
-            $result = $this->Consultasmodel->user($idRepartidor);
-            $this->response($result);
-        }
-
     	public function productos_post(){
-            $data->post();
+            $data = $this->post();
+
             $result = $this->Consultasmodel->productos($data);
             $this->response($result);
         }
         public function clientes_post(){
-            $data->post();
+            $data = $this->post();
             $result = $this->Consultasmodel->clientes($data);
             $this->response($result);
         }
         public function citas_get($idRepartidor="0"){
             $result = $this->Consultasmodel->citas($idRepartidor);
+            $this->response($result);
+        }
+        public function agregarventa_post(){
+            $data = $this->post();
+            $result = $this->Consultasmodel->venta($data);
             $this->response($result);
         }
 
