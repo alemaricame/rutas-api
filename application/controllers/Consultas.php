@@ -31,6 +31,8 @@
         }
         public function agregarventa_post(){
             $data = $this->post();
+            die($data);
+
             $result = $this->Consultasmodel->venta($data);
             $this->response($result);
         }
