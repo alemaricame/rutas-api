@@ -29,6 +29,17 @@
             //$this->response($result);
         }
 
+        public function agregarventa_post(){
+            // $data = $this->post();
+            // $result = $this->Loginmodel->login($data);
+
+            // $this->response($result);
+
+            $data = $this->post();
+            $result = $this->Consultasmodel->venta($data);
+            $this->response($result);
+        }
+
 
         
         

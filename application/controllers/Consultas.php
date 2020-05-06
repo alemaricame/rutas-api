@@ -30,9 +30,12 @@
             $this->response($result);
         }
         public function agregarventa_post(){
-            $data = $this->post();
-            die($data);
+            // $data = $this->post();
+            // $result = $this->Loginmodel->login($data);
 
+            // $this->response($result);
+
+            $data = $this->post();
             $result = $this->Consultasmodel->venta($data);
             $this->response($result);
         }
@@ -43,7 +46,10 @@
             $this->response($result);
         }
 
-
-
+        public function productosventas_post(){
+            $data = $this->post();
+            $result = $this->Consultasmodel->getproductos($data);
+            $this->response($result);
+        }
     }
 ?>

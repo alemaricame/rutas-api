@@ -94,20 +94,21 @@
         $consulta = $this->db->get();
         $datos = $consulta->result_array();
 
-        $idVentaRepartidor = $datos[0];
-
-        $this->db->select('*');
-        $this->db->from('ventasrepartidor_detalle');
-        $this->db->where("idVentaRepartidor",$idVentaRepartidor['idVentaRepartidor']);
-        $consultas = $this->db->get();
-        $datost = $consultas->result_array();
-
         $data = array(
-            "detalle" => $datos,
-            "datos" => $datost
+            "detalle" =>  $datos
         );
 
         return $data;
+    }
+
+    public function getproductos($data){
+        $this->db->select('*');
+        $this->db->from('ventasrepartidor_detalle');
+        $this->db->where("idVentaRepartidor",$data['idVentaRepartidor']);
+        $consultas = $this->db->get();
+        $datost = $consultas->result_array();
+
+        return $datost;
     }
 
 }
