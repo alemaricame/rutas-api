@@ -66,6 +66,20 @@
 
         $max = sizeof($productos);
         for($i = 0; $i < $max;$i++){
+            $productosData = $productos[$i];
+
+            $this->db->select('*');
+            $this->db->from('inventario');
+            $this->db->where('codigo',$productosData['id_inv']);
+            $consulta = $this->db->get();
+            $datos = $consulta->result_array();
+
+            die(json_encode($datos));
+
+        }
+
+
+        for($i = 0; $i < $max;$i++){
             array_push($productos[$i],$productos['idventarepartidor']=$idVentaRepartidor);
 
             $productosData = $productos[$i];
