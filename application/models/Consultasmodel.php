@@ -1,4 +1,6 @@
 <?php
+// set the default timezone to use. Available since PHP 5.1
+date_default_timezone_set('UTC');
     class Consultasmodel extends CI_Model{
         public function __construct(){
             parent::__construct();
@@ -16,12 +18,23 @@
     }
 
     public function clientes($data){
-        $this->db->select('*');
-        $this->db->from('client');
-        $this->db->where('nombreUsuario',$data['usuario']);
-        $consulta = $this->db->get();
-        $datos = $consulta->result_array();
+        $day = date("l");
 
+        switch ($day) {
+            case 'Monday':
+                $this->db->select('*');
+                $this->db->from('client');
+                $this->db->where('nombreUsuario',$data['usuario']);
+                $this->db->where('comentario','Ruta Lunes');
+                $consulta = $this->db->get();
+                $datos = $consulta->result_array();
+            break;
+            
+            default:
+                # code...
+            break;
+        }
+        
         return $datos;
     }
 
@@ -53,6 +66,7 @@
 
         $detail = array(
             "idUser"=> $data['idUser'],
+            "fecha_add"=> $data['fecha_add'],
             "id_client"=> $data['id_client'],
             "total_pago"=> $data['total_pago'],
             "tipo_pago"=> $data['tipo_pago'],
@@ -65,17 +79,21 @@
 
 
         $max = sizeof($productos);
-        for($i = 0; $i < $max;$i++){
-            $productosData = $productos[$i];
-
-            $this->db->select('*');
-            $this->db->from('inventario');
-            $this->db->where('codigo',$productosData['id_inv']);
+        for($j = 0; $j < $max;$j++){
+            $productosData = $productos[$j];
+            //die(json_encode($productos[$j]['idProducto']));
+            $this->db->select('vendedoresreinventario.cantidad');
+            $this->db->from('vendedoresreinventario');
+            $this->db->where('idProducto',$productosData['idProducto']);
+            $this->db->where('idUser',$data['idUser']);
             $consulta = $this->db->get();
             $datos = $consulta->result_array();
 
-            die(json_encode($datos));
-
+            
+            $updateInventario[$j] = $datos[0]['cantidad'] - $productosData['cantV'];
+                $sql = "UPDATE vendedoresreinventario SET cantidad = ? WHERE id_inv = ?";
+            $this->db->query($sql, array($updateInventario[$j], $productosData['id_inv']));
+            
         }
 
 
