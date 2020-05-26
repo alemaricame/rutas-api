@@ -29,6 +29,14 @@ date_default_timezone_set('UTC');
                 $consulta = $this->db->get();
                 $datos = $consulta->result_array();
             break;
+            case 'Tuesday':
+                $this->db->select('*');
+                $this->db->from('client');
+                $this->db->where('nombreUsuario',$data['usuario']);
+                $this->db->where('comentario','Ruta Martes');
+                $consulta = $this->db->get();
+                $datos = $consulta->result_array();
+            break;
             
             default:
                 # code...
