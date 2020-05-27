@@ -19,7 +19,6 @@ date_default_timezone_set('UTC');
 
     public function clientes($data){
         $day = date("l");
-        echo ($day);
         switch ($day) {
             case 'Monday':
                 $this->db->select('*');
