@@ -130,7 +130,7 @@ date_default_timezone_set('UTC');
 
             
             $updateInventario[$j] = $datos[0]['cantidad'] - $productosData['cantV'];
-                $sql = "UPDATE vendedoresreinventario SET cantidad = ? WHERE id_inv = ?";
+            $sql = "UPDATE vendedoresreinventario SET cantidad = ? WHERE id_inv = ?";
             $this->db->query($sql, array($updateInventario[$j], $productosData['id_inv']));
             
         }
@@ -180,6 +180,28 @@ date_default_timezone_set('UTC');
         $datost = $consultas->result_array();
 
         return $datost;
+    }
+
+
+    public function editClient($data){
+        $cliente = $data['nombre_cte'];
+        $id_client = $data['id_client'];
+        $direccion = $data['direccion'];
+        $comunidad = $data['comunidad'];
+        $telefono = $data['telefono'];
+        $comunidad = $data['comunidad'];
+        $nombreUsuario = $data['nombreUsuario'];
+        $comentario = $data['comentario'];
+
+        $sql = "UPDATE client SET nombre_cte = '$cliente', direccion = '$direccion', comunidad = '$comunidad', telefono = '$telefono',  comentario = '$comentario', nombreUsuario = '$nombreUsuario'
+        WHERE id_client = $id_client";       
+        $resultados = $this->db->query($sql);
+        return $resultados;
+    }
+
+
+    public function abonos($data){
+        return $data;
     }
 
 }

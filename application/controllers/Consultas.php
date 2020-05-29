@@ -51,5 +51,11 @@
             $result = $this->Consultasmodel->getproductos($data);
             $this->response($result);
         }
+
+        public function editClient_post(){
+            $data = $this->post();
+            $result = $this->Consultasmodel->editClient($data);
+            $this->response($result);
+        }
     }
 ?>
