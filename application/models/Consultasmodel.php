@@ -204,6 +204,40 @@ date_default_timezone_set('UTC');
         return $data;
     }
 
+    public function getVendedores(){
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where("tipo",'Vendedor');
+        $consultas = $this->db->get();
+        $datost = $consultas->result_array();
+
+        return $datost;
+    }
+
+    public function updateProduct($data){
+        $max = sizeof($data);
+        for($j = 0; $j < $max;$j++){
+            $productosData = $data[$j];
+            $productosDataCantidad = $productosData['cantidad'];
+            $productosDataId = $productosData['id_inv'];
+
+            $sql = "UPDATE vendedoresreinventario SET cantidad = '$productosDataCantidad'
+            WHERE id_inv = $productosDataId";   
+            
+            $resultados = $this->db->query($sql);
+        }
+
+        return $resultados;
+
+
+    }
+
+    public function addProduct($data){
+
+    }
+
+    
+
 }
     
 ?>

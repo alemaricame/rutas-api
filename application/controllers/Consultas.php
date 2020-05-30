@@ -57,5 +57,17 @@
             $result = $this->Consultasmodel->editClient($data);
             $this->response($result);
         }
+
+        public function getUsers_get(){
+            $result = $this->Consultasmodel->getVendedores();
+            $this->response($result);
+        }
+
+
+        public function updateProducto_post(){
+            $data = $this->post();
+            $result = $this->Consultasmodel->updateProduct($data);
+            $this->response($result);
+        }
     }
 ?>
