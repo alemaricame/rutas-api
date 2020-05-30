@@ -19,60 +19,65 @@ date_default_timezone_set('UTC');
 
     public function clientes($data){
         $day = date("l");
-        switch ($day) {
-            case 'Monday':
-                $this->db->select('*');
+                 $this->db->select('*');
                 $this->db->from('client');
                 $this->db->where('nombreUsuario',$data['usuario']);
-                $this->db->where('comentario','Ruta Lunes');
                 $consulta = $this->db->get();
                 $datos = $consulta->result_array();
-            break;
-            case 'Tuesday':
-                $this->db->select('*');
-                $this->db->from('client');
-                $this->db->where('nombreUsuario',$data['usuario']);
-                $this->db->where('comentario','Ruta Martes');
-                $consulta = $this->db->get();
-                $datos = $consulta->result_array();
-            break;
-            case 'Wednesday':
-                $this->db->select('*');
-                $this->db->from('client');
-                $this->db->where('nombreUsuario',$data['usuario']);
-                $this->db->where('comentario','Ruta Miercoles');
-                $consulta = $this->db->get();
-                $datos = $consulta->result_array();
-            break;
-            case 'Thursday':
-                $this->db->select('*');
-                $this->db->from('client');
-                $this->db->where('nombreUsuario',$data['usuario']);
-                $this->db->where('comentario','Ruta Jueves');
-                $consulta = $this->db->get();
-                $datos = $consulta->result_array();
-            break;
-            case 'Friday':
-                $this->db->select('*');
-                $this->db->from('client');
-                $this->db->where('nombreUsuario',$data['usuario']);
-                $this->db->where('comentario','Ruta Viernes');
-                $consulta = $this->db->get();
-                $datos = $consulta->result_array();
-            break;
-            case 'Saturday':
-                $this->db->select('*');
-                $this->db->from('client');
-                $this->db->where('nombreUsuario',$data['usuario']);
-                $this->db->where('comentario','Ruta Sabado');
-                $consulta = $this->db->get();
-                $datos = $consulta->result_array();
-            break;
+        // switch ($day) {
+        //     case 'Monday':
+        //         $this->db->select('*');
+        //         $this->db->from('client');
+        //         $this->db->where('nombreUsuario',$data['usuario']);
+        //         $this->db->where('comentario','Ruta Lunes');
+        //         $consulta = $this->db->get();
+        //         $datos = $consulta->result_array();
+        //     break;
+        //     case 'Tuesday':
+        //         $this->db->select('*');
+        //         $this->db->from('client');
+        //         $this->db->where('nombreUsuario',$data['usuario']);
+        //         $this->db->where('comentario','Ruta Martes');
+        //         $consulta = $this->db->get();
+        //         $datos = $consulta->result_array();
+        //     break;
+        //     case 'Wednesday':
+        //         $this->db->select('*');
+        //         $this->db->from('client');
+        //         $this->db->where('nombreUsuario',$data['usuario']);
+        //         $this->db->where('comentario','Ruta Miercoles');
+        //         $consulta = $this->db->get();
+        //         $datos = $consulta->result_array();
+        //     break;
+        //     case 'Thursday':
+        //         $this->db->select('*');
+        //         $this->db->from('client');
+        //         $this->db->where('nombreUsuario',$data['usuario']);
+        //         $this->db->where('comentario','Ruta Jueves');
+        //         $consulta = $this->db->get();
+        //         $datos = $consulta->result_array();
+        //     break;
+        //     case 'Friday':
+        //         $this->db->select('*');
+        //         $this->db->from('client');
+        //         $this->db->where('nombreUsuario',$data['usuario']);
+        //         $this->db->where('comentario','Ruta Viernes');
+        //         $consulta = $this->db->get();
+        //         $datos = $consulta->result_array();
+        //     break;
+        //     case 'Saturday':
+        //         $this->db->select('*');
+        //         $this->db->from('client');
+        //         $this->db->where('nombreUsuario',$data['usuario']);
+        //         $this->db->where('comentario','Ruta Sabado');
+        //         $consulta = $this->db->get();
+        //         $datos = $consulta->result_array();
+        //     break;
             
-            default:
-                # code...
-            break;
-        }
+        //     default:
+        //         # code...
+        //     break;
+        // }
         
         return $datos;
     }
