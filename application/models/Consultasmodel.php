@@ -178,13 +178,14 @@ date_default_timezone_set('UTC');
     }
 
     public function getproductos($data){
-        $this->db->select('*');
-        $this->db->from('ventasrepartidor_detalle');
-        $this->db->where("idVentaRepartidor",$data['idVentaRepartidor']);
-        $consultas = $this->db->get();
-        $datost = $consultas->result_array();
-
-        return $datost;
+        $user = $data['idVentaRepartidor'];
+        $query = "SELECT * FROM vendedoresreinventario WHERE idUser = $user ORDER BY descripcion asc";
+        // $this->db->select('*');
+        // $this->db->from('ventasrepartidor_detalle');
+        // $this->db->where("ventasrepartidor_detalle.idVentaRepartidor",$data['idVentaRepartidor']);
+        // $this->db->order_by("ventasrepartidor_detalle.descripcion","ASC");
+        $resultados = $this->db->query($query);
+        return $resultados;
     }
 
 
