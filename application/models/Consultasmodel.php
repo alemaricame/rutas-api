@@ -159,7 +159,7 @@ date_default_timezone_set('UTC');
             $this->db->insert('ventasrepartidor_detalle', $prod);
         }
 
-        return $idVentaRepartidor = $this->db->insert_id();
+        return $idVentaRepartidor;
 
 
     }
