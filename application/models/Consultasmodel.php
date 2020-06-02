@@ -183,8 +183,9 @@ date_default_timezone_set('UTC');
         $this->db->select('*');
         $this->db->from('ventasrepartidor_detalle');
         $this->db->where("ventasrepartidor_detalle.idVentaRepartidor",$data['idVentaRepartidor']);
-        $resultados = $this->db->query($query);
-        return $resultados;
+        $consulta = $this->db->get();
+        $datos = $consulta->result_array();        
+        return $datos;
     }
 
 
