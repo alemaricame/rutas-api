@@ -11,6 +11,7 @@ date_default_timezone_set('UTC');
         $this->db->select('*');
         $this->db->from('vendedoresreinventario');
         $this->db->where("idUser",$data['idUser']);
+        $this->db->order_by("descripcion", "ASC");
         $consulta = $this->db->get();
         $datos = $consulta->result_array();
 
@@ -179,11 +180,9 @@ date_default_timezone_set('UTC');
 
     public function getproductos($data){
         $user = $data['idVentaRepartidor'];
-        $query = "SELECT * FROM vendedoresreinventario WHERE idUser = $user ORDER BY descripcion asc";
-        // $this->db->select('*');
-        // $this->db->from('ventasrepartidor_detalle');
-        // $this->db->where("ventasrepartidor_detalle.idVentaRepartidor",$data['idVentaRepartidor']);
-        // $this->db->order_by("ventasrepartidor_detalle.descripcion","ASC");
+        $this->db->select('*');
+        $this->db->from('ventasrepartidor_detalle');
+        $this->db->where("ventasrepartidor_detalle.idVentaRepartidor",$data['idVentaRepartidor']);
         $resultados = $this->db->query($query);
         return $resultados;
     }
@@ -240,6 +239,10 @@ date_default_timezone_set('UTC');
 
     public function addProduct($data){
 
+    }
+
+    public function addCliente($data){
+        
     }
 
     
