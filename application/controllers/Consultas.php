@@ -69,5 +69,18 @@
             $result = $this->Consultasmodel->updateProduct($data);
             $this->response($result);
         }
+
+        
+        public function addCliente_post(){
+            $data = $this->post();
+            $result = $this->Consultasmodel->addCliente($data);
+            $this->response($result);
+        }
+
+        public function deleteCliente_post(){
+            $data = $this->post();
+            $result = $this->Consultasmodel->deleteCliente($data);
+            $this->response($result);
+        }
     }
 ?>

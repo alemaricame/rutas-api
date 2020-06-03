@@ -171,11 +171,8 @@ date_default_timezone_set('UTC');
         $consulta = $this->db->get();
         $datos = $consulta->result_array();
 
-        $data = array(
-            "detalle" =>  $datos
-        );
 
-        return $data;
+        return $datos;
     }
 
     public function getproductos($data){
@@ -243,9 +240,16 @@ date_default_timezone_set('UTC');
     }
 
     public function addCliente($data){
-        
+        $this->db->insert('client', $data);
+        return $this->db->insert_id();
     }
 
+    public function deleteCliente($data){
+        $sql = ('DELETE from client where id_client = '.$data[0].'');
+        $resultados = $this->db->query($sql);
+
+        return $resultados;
+    }
     
 
 }
