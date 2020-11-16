@@ -261,7 +261,7 @@ date_default_timezone_set('UTC');
     }
 
     //editarstockproducto
-    public function editarstockproducto(){
+    public function editarstockproducto($data){
         $idproducto = $data['idProducto'];
         $stock = $data['almacen'];
       
