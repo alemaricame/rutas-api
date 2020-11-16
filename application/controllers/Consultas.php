@@ -94,5 +94,12 @@
             $result = $this->Consultasmodel->editarstockproducto($data);
             $this->response($result);
         }
+
+        
+        public function vendedores_get(){
+            $data = $this->get();
+            $result = $this->Consultasmodel->vendedores();
+            $this->response($result);
+        }
     }
 ?>

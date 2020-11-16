@@ -272,6 +272,15 @@ date_default_timezone_set('UTC');
         return $resultados;
     }
 
+    public function vendedores(){
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where("tipo",'Vendedor');
+        $consulta = $this->db->get();
+        $datos = $consulta->result_array();
+        return $datos;
+    }
+
 }
     
 ?>
