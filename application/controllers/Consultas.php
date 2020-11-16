@@ -89,7 +89,7 @@
             $this->response($result);
         }
 
-        public function editarstockproducto_get(){
+        public function editarstockproducto_post(){
             $data = $this->post();
             $result = $this->Consultasmodel->editarstockproducto($data);
             $this->response($result);
