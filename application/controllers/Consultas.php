@@ -82,5 +82,11 @@
             $result = $this->Consultasmodel->deleteCliente($data);
             $this->response($result);
         }
+
+        public function inventario_get(){
+            $data = $this->get();
+            $result = $this->Consultasmodel->inventario();
+            $this->response($result);
+        }
     }
 ?>

@@ -252,6 +252,15 @@ date_default_timezone_set('UTC');
     }
     
 
+    public function inventario(){
+        $this->db->select('*');
+        $this->db->from('inventario');
+        $consulta = $this->db->get();
+        $datos = $consulta->result_array();
+        return $datos;
+    }
+
+
 }
     
 ?>
