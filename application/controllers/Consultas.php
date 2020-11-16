@@ -88,5 +88,11 @@
             $result = $this->Consultasmodel->inventario();
             $this->response($result);
         }
+
+        public function editarstockproducto_get(){
+            $data = $this->post();
+            $result = $this->Consultasmodel->editarstockproducto($data);
+            $this->response($result);
+        }
     }
 ?>

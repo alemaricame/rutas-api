@@ -260,6 +260,17 @@ date_default_timezone_set('UTC');
         return $datos;
     }
 
+    //editarstockproducto
+    public function editarstockproducto(){
+        $idproducto = $data['idProducto'];
+        $stock = $data['almacen'];
+      
+
+        $sql = "UPDATE inventario SET almacen = '$stock' 
+        WHERE idProducto = $idproducto";       
+        $resultados = $this->db->query($sql);
+        return $resultados;
+    }
 
 }
     
