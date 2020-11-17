@@ -102,9 +102,9 @@
             $this->response($result);
         }
 
-        public function vendedor_get($idRepartidor="0"){
-            $data = $this->get();
-            $result = $this->Consultasmodel->vendedor($idRepartidor);
+        public function vendedor_post(){
+            $data = $this->post();
+            $result = $this->Consultasmodel->vendedor($data);
             $this->response($result);
         }
     }
