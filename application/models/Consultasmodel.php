@@ -281,6 +281,15 @@ date_default_timezone_set('UTC');
         return $datos;
     }
 
+    public function vendedor($idRepartidor){
+        $this->db->select('*');
+        $this->db->from('vendedores_detail');
+        $this->db->where("idvendedor",$idRepartidor['id']);
+        $consulta = $this->db->get();
+        $datos = $consulta->result_array();
+        return $datos;
+    }
+
 }
     
 ?>

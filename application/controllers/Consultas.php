@@ -101,5 +101,11 @@
             $result = $this->Consultasmodel->vendedores();
             $this->response($result);
         }
+
+        public function vendedor_get($idRepartidor="0"){
+            $data = $this->get();
+            $result = $this->Consultasmodel->vendedor($idRepartidor);
+            $this->response($result);
+        }
     }
 ?>
