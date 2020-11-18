@@ -222,9 +222,11 @@ date_default_timezone_set('UTC');
         for($j = 0; $j < $max;$j++){
             $productosData = $data[$j];
             $productosDataCantidad = $productosData['cantidad'];
+            $total = $productosData['total'];
+
             $productosDataId = $productosData['id_inv'];
 
-            $sql = "UPDATE vendedoresreinventario SET cantidad = '$productosDataCantidad'
+            $sql = "UPDATE vendedoresreinventario SET cantidad = '$productosDataCantidad', total = '$total
             WHERE id_inv = $productosDataId";   
             
             $resultados = $this->db->query($sql);
