@@ -288,6 +288,11 @@ date_default_timezone_set('UTC');
         return $datos;
     }
 
+    public function addProductoVendedor($data){
+        $this->db->insert('vendedoresreinventario', $data);
+        return $this->db->insert_id();
+    }
+
 }
     
 ?>

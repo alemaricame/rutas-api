@@ -107,5 +107,11 @@
             $result = $this->Consultasmodel->vendedor($data);
             $this->response($result);
         }
+        
+        public function agregarproductovendedor_post(){
+            $data = $this->post();
+            $result = $this->Consultasmodel->addProductoVendedor($data);
+            $this->response($result);
+        }
     }
 ?>
