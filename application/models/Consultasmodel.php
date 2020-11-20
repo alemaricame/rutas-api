@@ -222,7 +222,8 @@ date_default_timezone_set('UTC');
 
         $productosDataCantidad = $data['cantidad'];
         $total = $data['total'];
-
+        $productosDataId = $data['idProducto'];
+        
         $sql = "UPDATE vendedoresreinventario SET cantidad = '$productosDataCantidad', total = '$total'
         WHERE id_inv = $productosDataId";   
         
