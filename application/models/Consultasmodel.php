@@ -218,6 +218,8 @@ date_default_timezone_set('UTC');
     }
 
     public function updateProduct($data){
+        var_dump($data);
+        die();
         $max = sizeof($data);
         for($j = 0; $j < $max;$j++){
             $productosData = $data[$j];
